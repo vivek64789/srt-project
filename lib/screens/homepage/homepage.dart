@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:srtapp/data/contact_details.dart';
+import 'package:srtapp/screens/continue_to_app/app_homepage.dart';
 import 'package:srtapp/screens/homepage/background.dart';
+import 'package:srtapp/screens/organizations/organization.dart';
 import 'package:srtapp/utils/assets.dart';
 import 'package:srtapp/utils/constants.dart';
 import 'package:srtapp/utils/size.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -117,69 +121,96 @@ class Homepage extends StatelessWidget {
                               showModalBottomSheet(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    return Container(
+                                    return SizedBox(
+                                      height: 700,
                                       child: Column(
+                                        mainAxisSize: MainAxisSize.min,
                                         children: [
+                                          // Numbers
                                           Text(
-                                            'Support',
+                                            "EMERGENCY NUMBERS",
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .headline5,
+                                                .headline5
+                                                ?.copyWith(
+                                                  color: Colors.red,
+                                                ),
                                           ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.45,
+                                            child: ListView.builder(
+                                              itemCount: contactDetails.length,
+                                              itemBuilder: (context, index) {
+                                                return Container(
+                                                  margin: const EdgeInsets.all(
+                                                      Constants
+                                                          .listViewItemMargin),
+                                                  decoration: BoxDecoration(
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .background,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Colors.black
+                                                            .withOpacity(0.2),
+                                                        spreadRadius: 5,
+                                                        blurRadius: 7,
+                                                        offset: Constants
+                                                            .offset, // changes position of shadow
+                                                      ),
+                                                    ],
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            Constants
+                                                                .borderRadius),
+                                                  ),
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      contactDetails[index]
+                                                          ['label'],
+                                                      style: TextStyle(
+                                                        color: Theme.of(context)
+                                                            .colorScheme
+                                                            .primary,
+                                                      ),
+                                                    ),
+                                                    onTap: () {
+                                                      if (contactDetails[index]
+                                                              ['onClick'] ==
+                                                          'call') {
+                                                        launchUrl(
+                                                          Uri.parse(
+                                                              'tel:${contactDetails[index]['value']}'),
+                                                        );
+                                                      } else if (contactDetails[
+                                                                  index]
+                                                              ['onClick'] ==
+                                                          'page') {
+                                                        Navigator.pushNamed(
+                                                          context,
+                                                          contactDetails[index]
+                                                              ['value'],
+                                                        );
+                                                      }
+                                                    },
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
-                                          Text(
-                                            'If you are in immediate danger, call 999',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1,
-                                          ),
+
+                                          TextButton(
+                                              onPressed: (() =>
+                                                  {Navigator.pop(context)}),
+                                              child: const Text(
+                                                'Close',
+                                                style: TextStyle(
+                                                  color: Colors.red,
+                                                ),
+                                              )),
                                         ],
                                       ),
                                     );
@@ -188,8 +219,11 @@ class Homepage extends StatelessWidget {
                             child: const Text('Support'),
                           ),
                           TextButton(
-                            onPressed: () {},
-                            child: const Text('Learn more'),
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushReplacementNamed(AppHomepage.routeName);
+                            },
+                            child: const Text('Continue to App'),
                           ),
                         ],
                       ),

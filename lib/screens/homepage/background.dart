@@ -12,9 +12,13 @@ class Background extends StatelessWidget {
       child: Stack(
         children: [
           // Background image full
-          Image.asset(
-            Assets.backgroundImage,
-            fit: BoxFit.cover,
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Image.asset(
+              Assets.backgroundImage,
+              fit: BoxFit.cover,
+            ),
           ),
 
           Container(
