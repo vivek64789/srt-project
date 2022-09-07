@@ -5,7 +5,7 @@ import 'package:srtapp/utils/colors.dart';
 ThemeData lightTheme() {
   return ThemeData(
     scaffoldBackgroundColor: LightColors.backgroundColor,
-    fontFamily: GoogleFonts.poppins().fontFamily,
+    fontFamily: "Helvetica",
     textTheme: textTheme(),
     colorScheme: colorScheme(),
     appBarTheme: appBarTheme(),
@@ -15,7 +15,7 @@ ThemeData lightTheme() {
 AppBarTheme appBarTheme() {
   return AppBarTheme(
     centerTitle: true,
-    backgroundColor: Color.fromARGB(255, 62, 52, 52),
+    backgroundColor: const Color.fromARGB(255, 62, 52, 52),
     elevation: 0,
     actionsIconTheme: const IconThemeData(
       color: Color.fromRGBO(158, 158, 158, 1),
@@ -82,12 +82,14 @@ TextTheme textTheme() {
       color: Colors.black,
       fontWeight: FontWeight.normal,
       height: 1.75,
-      fontSize: 12,
+      fontSize: 15,
+      fontFamily: "Arial",
     ),
     bodyText2: TextStyle(
       color: Colors.black,
       fontWeight: FontWeight.normal,
-      fontSize: 10,
+      fontSize: 13,
+      fontFamily: "Arial",
     ),
     button: TextStyle(
       color: Colors.black,

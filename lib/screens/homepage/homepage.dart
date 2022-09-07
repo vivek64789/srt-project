@@ -122,25 +122,30 @@ class Homepage extends StatelessWidget {
                                   context: context,
                                   builder: (BuildContext context) {
                                     return SizedBox(
-                                      height: 700,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.45,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           // Numbers
-                                          Text(
-                                            "EMERGENCY NUMBERS",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headline5
-                                                ?.copyWith(
-                                                  color: Colors.red,
-                                                ),
+                                          Container(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                              "Emergency Numbers",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headline5
+                                                  ?.copyWith(
+                                                    color: Colors.red,
+                                                  ),
+                                            ),
                                           ),
                                           SizedBox(
                                             height: MediaQuery.of(context)
                                                     .size
                                                     .height *
-                                                0.45,
+                                                0.35,
                                             child: ListView.builder(
                                               itemCount: contactDetails.length,
                                               itemBuilder: (context, index) {

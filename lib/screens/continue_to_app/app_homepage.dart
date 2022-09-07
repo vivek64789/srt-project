@@ -14,6 +14,17 @@ class AppHomepage extends StatelessWidget {
   const AppHomepage({Key? key}) : super(key: key);
   Widget buildChild(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        color: Colors.red,
+        child: IconButton(
+          // color: ,
+          onPressed: () {},
+          icon: Icon(
+            Icons.phone,
+          ),
+        ),
+      ),
       backgroundColor: Colors.white.withOpacity(0.0),
       appBar: AppBar(
         backgroundColor: Colors.white.withOpacity(0.0),
