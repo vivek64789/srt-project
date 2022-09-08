@@ -15,7 +15,6 @@ import 'package:srtapp/utils/light_theme.dart';
 
 // hive
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'models/organization.dart';
 
 void main() async {

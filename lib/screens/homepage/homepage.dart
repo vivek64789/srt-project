@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:srtapp/data/contact_details.dart';
 import 'package:srtapp/screens/continue_to_app/app_homepage.dart';
 import 'package:srtapp/screens/homepage/background.dart';
-import 'package:srtapp/screens/organizations/organization.dart';
 import 'package:srtapp/utils/assets.dart';
 import 'package:srtapp/utils/constants.dart';
 import 'package:srtapp/utils/size.dart';
