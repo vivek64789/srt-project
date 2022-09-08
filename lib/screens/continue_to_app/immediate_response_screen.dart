@@ -143,3 +143,82 @@ class BodyTitle extends StatelessWidget {
     );
   }
 }
+
+class BodyHeading3 extends StatelessWidget {
+  final String text;
+  const BodyHeading3(
+    this.text, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(4.0),
+      margin: const EdgeInsets.all(4.0),
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.headline3,
+      ),
+    );
+  }
+}
+
+class BodyHeading4 extends StatelessWidget {
+  final String text;
+  const BodyHeading4(
+    this.text, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(4.0),
+      margin: const EdgeInsets.all(4.0),
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.headline4,
+      ),
+    );
+  }
+}
+
+class BodyContent extends StatelessWidget {
+  final String text;
+  const BodyContent(
+    this.text, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(4.0),
+      margin: const EdgeInsets.all(4.0),
+      child: StyledText(
+        text: text,
+        tags: {
+          "link": StyledTextActionTag(
+            ((text, attributes) {
+              Launcher.launchURL(attributes['href'].toString());
+            }),
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+          "phone": StyledTextActionTag(
+            ((text, attributes) {
+              Launcher.launchPhone(attributes['href'].toString());
+            }),
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        },
+      ),
+    );
+  }
+}

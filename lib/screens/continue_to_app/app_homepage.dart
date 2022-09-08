@@ -21,91 +21,90 @@ class AppHomepage extends StatelessWidget {
       floatingActionButton: IconButton(
         icon: Icon(
           Icons.phone,
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.error,
         ),
         onPressed: () {
           showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.45,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Numbers
-                      Container(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Emergency Numbers",
-                          style:
-                              Theme.of(context).textTheme.headline5?.copyWith(
-                                    color: Colors.red,
-                                  ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.35,
-                        child: ListView.builder(
-                          itemCount: contactDetails.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: const EdgeInsets.all(
-                                  Constants.listViewItemMargin),
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.background,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.2),
-                                    spreadRadius: 5,
-                                    blurRadius: 7,
-                                    offset: Constants
-                                        .offset, // changes position of shadow
-                                  ),
-                                ],
-                                borderRadius: BorderRadius.circular(
-                                    Constants.borderRadius),
-                              ),
-                              child: ListTile(
-                                title: Text(
-                                  contactDetails[index]['label'],
-                                  style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                  ),
-                                ),
-                                onTap: () {
-                                  if (contactDetails[index]['onClick'] ==
-                                      'call') {
-                                    launchUrl(
-                                      Uri.parse(
-                                          'tel:${contactDetails[index]['value']}'),
-                                    );
-                                  } else if (contactDetails[index]['onClick'] ==
-                                      'page') {
-                                    Navigator.pushNamed(
-                                      context,
-                                      contactDetails[index]['value'],
-                                    );
-                                  }
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-
-                      TextButton(
-                          onPressed: (() => {Navigator.pop(context)}),
-                          child: const Text(
-                            'Close',
-                            style: TextStyle(
+            context: context,
+            builder: (BuildContext context) {
+              return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.45,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Numbers
+                    Container(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Emergency Numbers",
+                        style: Theme.of(context).textTheme.headline5?.copyWith(
                               color: Colors.red,
                             ),
-                          )),
-                    ],
-                  ),
-                );
-              });
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.35,
+                      child: ListView.builder(
+                        itemCount: contactDetails.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: const EdgeInsets.all(
+                                Constants.listViewItemMargin),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.background,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: Constants
+                                      .offset, // changes position of shadow
+                                ),
+                              ],
+                              borderRadius:
+                                  BorderRadius.circular(Constants.borderRadius),
+                            ),
+                            child: ListTile(
+                              title: Text(
+                                contactDetails[index]['label'],
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                              ),
+                              onTap: () {
+                                if (contactDetails[index]['onClick'] ==
+                                    'call') {
+                                  launchUrl(
+                                    Uri.parse(
+                                        'tel:${contactDetails[index]['value']}'),
+                                  );
+                                } else if (contactDetails[index]['onClick'] ==
+                                    'page') {
+                                  Navigator.pushNamed(
+                                    context,
+                                    contactDetails[index]['value'],
+                                  );
+                                }
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+
+                    TextButton(
+                        onPressed: (() => {Navigator.pop(context)}),
+                        child: const Text(
+                          'Close',
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
+                        )),
+                  ],
+                ),
+              );
+            },
+          );
         },
       ),
       backgroundColor: Colors.white.withOpacity(0.0),
@@ -189,7 +188,11 @@ class AppHomepage extends StatelessWidget {
             children: [
               // top part
               Container(
-                margin: const EdgeInsets.all(Constants.boxMargin),
+                margin: const EdgeInsets.only(
+                  left: Constants.boxMargin,
+                  right: Constants.boxMargin,
+                  bottom: Constants.boxMargin,
+                ),
                 height: size(context).height * 0.2,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.background,
@@ -212,8 +215,9 @@ class AppHomepage extends StatelessWidget {
               ),
               // bottom part
               Container(
-                  margin: const EdgeInsets.all(Constants.boxMargin),
-                  height: size(context).height * 0.4,
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: Constants.boxMargin),
+                  height: size(context).height * 0.55,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.background,
                     boxShadow: [
@@ -234,35 +238,49 @@ class AppHomepage extends StatelessWidget {
                         Column(
                           children: [
                             AppHomepageItem(
-                              name: 'Immediate Response 1',
+                              name: 'Immediate Response',
                               onTap: () {
                                 Navigator.of(context).pushNamed(
                                     ImmediateResponseScreen.routeName);
                               },
                             ),
                             AppHomepageItem(
-                              name: 'Report Incident',
+                              name: 'Act Support Services',
                               onTap: () {
                                 Navigator.of(context)
                                     .pushNamed(ReportIncidentScreen.routeName);
                               },
                             ),
                             AppHomepageItem(
-                              name: 'Support Services',
+                              name: 'National Support Services',
                               onTap: () {
                                 Navigator.of(context)
                                     .pushNamed(SupportServicesScreen.routeName);
                               },
                             ),
                             AppHomepageItem(
-                              name: 'Quick Resources',
+                              name: 'Immediate Aftermath',
                               onTap: () {
                                 Navigator.of(context)
                                     .pushNamed(QuickResourcesScreen.routeName);
                               },
                             ),
                             AppHomepageItem(
-                              name: 'Prevent Violences',
+                              name: 'Police and Investigations',
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                    PreventViolencesScreen.routeName);
+                              },
+                            ),
+                            AppHomepageItem(
+                              name: 'Navigating the Justice System',
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                    PreventViolencesScreen.routeName);
+                              },
+                            ),
+                            AppHomepageItem(
+                              name: 'Institutional Settings',
                               onTap: () {
                                 Navigator.of(context).pushNamed(
                                     PreventViolencesScreen.routeName);
