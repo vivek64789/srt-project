@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:srtapp/models/personalized_contact.dart';
-import 'package:srtapp/screens/organizations/add_organization.dart';
 import 'package:srtapp/screens/personalized_contact/add_personalized_contact.dart';
 import 'package:srtapp/utils/boxes.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../models/organization.dart';
 
 class PersonalizedContactScreen extends StatefulWidget {
   static const String routeName = '/personalized_contact';
@@ -122,7 +118,10 @@ class _PersonalizedContactScreenState extends State<PersonalizedContactScreen> {
             onPressed: () {
               Navigator.pushNamed(context, AddPersonalizedContact.routeName);
             },
-            icon: const Icon(Icons.add),
+            icon: const Icon(
+              Icons.add,
+              semanticLabel: 'Add',
+            ),
           ),
         ],
       ),

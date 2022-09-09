@@ -123,21 +123,34 @@ class Homepage extends StatelessWidget {
                                     return SizedBox(
                                       height:
                                           MediaQuery.of(context).size.height *
-                                              0.45,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
+                                              0.5,
+                                      child: ListView(
                                         children: [
                                           // Numbers
                                           Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.07,
+                                            decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                            ),
                                             padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              "Emergency Numbers",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .headline5
-                                                  ?.copyWith(
-                                                    color: Colors.red,
-                                                  ),
+                                            child: Center(
+                                              child: Text(
+                                                "Emergency Numbers",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headline5
+                                                    ?.copyWith(
+                                                      color: Colors.white,
+                                                    ),
+                                              ),
                                             ),
                                           ),
                                           SizedBox(
@@ -206,15 +219,20 @@ class Homepage extends StatelessWidget {
                                             ),
                                           ),
 
-                                          TextButton(
-                                              onPressed: (() =>
-                                                  {Navigator.pop(context)}),
-                                              child: const Text(
-                                                'Close',
-                                                style: TextStyle(
-                                                  color: Colors.red,
-                                                ),
-                                              )),
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.9,
+                                            child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    primary: Colors.red),
+                                                onPressed: (() =>
+                                                    {Navigator.pop(context)}),
+                                                child: const Text(
+                                                  'Close',
+                                                )),
+                                          ),
                                         ],
                                       ),
                                     );

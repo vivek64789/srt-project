@@ -75,7 +75,8 @@ class ReportIncidentScreen extends StatelessWidget {
             const BodyTitle(text: "ACT Crisis Support Services"),
             const BodyHeading3('Hospitals'),
             const BodyHeading4('Canberra Hospital'),
-            const BodyContent('''(02) 5124 0000 - 24/7
+            const BodyContent(
+                '''<phone href='(02) 5124 0000'>(02) 5124 0000 </phone>- 24/7
 
 Building 12, Yamba Drive, Garran ACT 2605'''),
             const BodyHeading4('Calvary Public Hospital'),

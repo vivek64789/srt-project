@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:srtapp/models/personalized_contact.dart';
 import 'package:srtapp/screens/continue_to_app/app_homepage.dart';
 import 'package:srtapp/screens/continue_to_app/immediate_response_screen.dart';
+import 'package:srtapp/screens/continue_to_app/institutional_settings_screen.dart';
+import 'package:srtapp/screens/continue_to_app/navigating_the_justice_system.dart';
 import 'package:srtapp/screens/continue_to_app/prevent_violences_screen.dart';
 import 'package:srtapp/screens/continue_to_app/quick_resources_screen.dart';
 import 'package:srtapp/screens/continue_to_app/report_incident_screen.dart';
@@ -55,6 +57,10 @@ class MyApp extends StatelessWidget {
             const QuickResourcesScreen(),
         PreventViolencesScreen.routeName: (context) =>
             const PreventViolencesScreen(),
+        NavigatingTheJusticeSystemScreen.routeName: (context) =>
+            const NavigatingTheJusticeSystemScreen(),
+        InstitutionalSettingsScreen.routeName: (context) =>
+            const InstitutionalSettingsScreen(),
       },
     );
   }

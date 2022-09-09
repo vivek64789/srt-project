@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:srtapp/screens/continue_to_app/immediate_response_screen.dart';
+import 'package:srtapp/screens/continue_to_app/institutional_settings_screen.dart';
+import 'package:srtapp/screens/continue_to_app/navigating_the_justice_system.dart';
 import 'package:srtapp/screens/continue_to_app/prevent_violences_screen.dart';
 import 'package:srtapp/screens/continue_to_app/quick_resources_screen.dart';
 import 'package:srtapp/screens/continue_to_app/report_incident_screen.dart';
@@ -276,14 +278,14 @@ class AppHomepage extends StatelessWidget {
                               name: 'Navigating the Justice System',
                               onTap: () {
                                 Navigator.of(context).pushNamed(
-                                    PreventViolencesScreen.routeName);
+                                    NavigatingTheJusticeSystemScreen.routeName);
                               },
                             ),
                             AppHomepageItem(
                               name: 'Institutional Settings',
                               onTap: () {
                                 Navigator.of(context).pushNamed(
-                                    PreventViolencesScreen.routeName);
+                                    InstitutionalSettingsScreen.routeName);
                               },
                             ),
                           ],
@@ -316,33 +318,36 @@ class AppHomepageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onTap(),
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.05,
-        width: MediaQuery.of(context).size.width * 0.6,
-        margin: const EdgeInsets.all(10),
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.background,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Constants.offset, // changes position of shadow
+    return Semantics(
+      button: true,
+      child: GestureDetector(
+        onTap: () => onTap(),
+        child: Container(
+          height: MediaQuery.of(context).size.height * 0.05,
+          width: MediaQuery.of(context).size.width * 0.6,
+          margin: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.background,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Constants.offset, // changes position of shadow
+              ),
+            ],
+            borderRadius: BorderRadius.circular(
+              Constants.borderRadius,
             ),
-          ],
-          borderRadius: BorderRadius.circular(
-            Constants.borderRadius,
           ),
-        ),
-        child: Text(
-          name,
-          style: Theme.of(context)
-              .textTheme
-              .headline5
-              ?.copyWith(color: Theme.of(context).colorScheme.primary),
+          child: Text(
+            name,
+            style: Theme.of(context)
+                .textTheme
+                .headline5
+                ?.copyWith(color: Theme.of(context).colorScheme.primary),
+          ),
         ),
       ),
     );

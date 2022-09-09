@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:srtapp/screens/organizations/add_organization.dart';
 import 'package:srtapp/utils/boxes.dart';
@@ -119,7 +118,10 @@ class _OrganizationScreenState extends State<OrganizationScreen> {
             onPressed: () {
               Navigator.pushNamed(context, AddOrganization.routeName);
             },
-            icon: const Icon(Icons.add),
+            icon: const Icon(
+              Icons.add,
+              semanticLabel: 'Add',
+            ),
           ),
         ],
       ),
