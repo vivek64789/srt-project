@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:srtapp/screens/continue_to_app/about_us.dart';
+import 'package:srtapp/screens/continue_to_app/activism_and_advocacy_screen.dart';
 import 'package:srtapp/screens/continue_to_app/immediate_response_screen.dart';
 import 'package:srtapp/screens/continue_to_app/institutional_settings_screen.dart';
 import 'package:srtapp/screens/continue_to_app/navigating_the_justice_system.dart';
 import 'package:srtapp/screens/continue_to_app/prevent_violences_screen.dart';
 import 'package:srtapp/screens/continue_to_app/quick_resources_screen.dart';
 import 'package:srtapp/screens/continue_to_app/report_incident_screen.dart';
+import 'package:srtapp/screens/continue_to_app/sharing_your_story_screen.dart';
 import 'package:srtapp/screens/continue_to_app/support_services_screen.dart';
 import 'package:srtapp/screens/homepage/background.dart';
 import 'package:srtapp/utils/assets.dart';
 import 'package:srtapp/utils/constants.dart';
+import 'package:srtapp/utils/launcher.dart';
 import 'package:srtapp/utils/size.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -27,86 +31,95 @@ class AppHomepage extends StatelessWidget {
         ),
         onPressed: () {
           showModalBottomSheet(
-            context: context,
-            builder: (BuildContext context) {
-              return SizedBox(
-                height: MediaQuery.of(context).size.height * 0.45,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Numbers
-                    Container(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Emergency Numbers",
-                        style: Theme.of(context).textTheme.headline5?.copyWith(
-                              color: Colors.red,
-                            ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.35,
-                      child: ListView.builder(
-                        itemCount: contactDetails.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            margin: const EdgeInsets.all(
-                                Constants.listViewItemMargin),
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.background,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.2),
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: Constants
-                                      .offset, // changes position of shadow
-                                ),
-                              ],
-                              borderRadius:
-                                  BorderRadius.circular(Constants.borderRadius),
-                            ),
-                            child: ListTile(
-                              title: Text(
-                                contactDetails[index]['label'],
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                ),
-                              ),
-                              onTap: () {
-                                if (contactDetails[index]['onClick'] ==
-                                    'call') {
-                                  launchUrl(
-                                    Uri.parse(
-                                        'tel:${contactDetails[index]['value']}'),
-                                  );
-                                } else if (contactDetails[index]['onClick'] ==
-                                    'page') {
-                                  Navigator.pushNamed(
-                                    context,
-                                    contactDetails[index]['value'],
-                                  );
-                                }
-                              },
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-
-                    TextButton(
-                        onPressed: (() => {Navigator.pop(context)}),
-                        child: const Text(
-                          'Close',
-                          style: TextStyle(
-                            color: Colors.red,
+              context: context,
+              builder: (BuildContext context) {
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  child: ListView(
+                    children: [
+                      // Numbers
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.07,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            "Emergency Numbers",
+                            style:
+                                Theme.of(context).textTheme.headline5?.copyWith(
+                                      color: Colors.white,
+                                    ),
                           ),
-                        )),
-                  ],
-                ),
-              );
-            },
-          );
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.35,
+                        child: ListView.builder(
+                          itemCount: contactDetails.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              margin: const EdgeInsets.all(
+                                  Constants.listViewItemMargin),
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).colorScheme.background,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.2),
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: Constants
+                                        .offset, // changes position of shadow
+                                  ),
+                                ],
+                                borderRadius: BorderRadius.circular(
+                                    Constants.borderRadius),
+                              ),
+                              child: ListTile(
+                                title: Text(
+                                  contactDetails[index]['label'],
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
+                                onTap: () {
+                                  if (contactDetails[index]['onClick'] ==
+                                      'call') {
+                                    launchUrl(
+                                      Uri.parse(
+                                          'tel:${contactDetails[index]['value']}'),
+                                    );
+                                  } else if (contactDetails[index]['onClick'] ==
+                                      'page') {
+                                    Navigator.pushNamed(
+                                      context,
+                                      contactDetails[index]['value'],
+                                    );
+                                  }
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: ElevatedButton(
+                            style:
+                                ElevatedButton.styleFrom(primary: Colors.red),
+                            onPressed: (() => {Navigator.pop(context)}),
+                            child: const Text(
+                              'Close',
+                            )),
+                      ),
+                    ],
+                  ),
+                );
+              });
         },
       ),
       backgroundColor: Colors.white.withOpacity(0.0),
@@ -147,37 +160,38 @@ class AppHomepage extends StatelessWidget {
             ListTile(
               title: const Text('About us'),
               onTap: () {
-                Navigator.of(context).pop();
+                Navigator.pushNamed(context, AboutUsScreen.routeName);
               },
             ),
             ListTile(
               title: const Text('Sharing your story'),
               onTap: () {
-                Navigator.of(context).pop();
+                Navigator.pushNamed(context, SharingYourStoryScreen.routeName);
               },
             ),
             ListTile(
               title: const Text('Activism and Advocacy'),
               onTap: () {
-                Navigator.of(context).pop();
+                Navigator.pushNamed(context, ActivismAndAdvocacy.routeName);
               },
             ),
-            ListTile(
-              title: const Text('Downloadable Community Resources'),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-            ),
+            // ListTile(
+            //   title: const Text('Downloadable Community Resources'),
+            //   onTap: () {
+            //     Navigator.of(context)
+            //         .pushNamed(DownloadableResources.routeName);
+            //   },
+            // ),
             ListTile(
               title: const Text('The Safe Response Toolkit Website'),
               onTap: () {
-                Navigator.of(context).pop();
+                Launcher.launchURL('https://www.saferesponsetoolkit.com.au/');
               },
             ),
             ListTile(
               title: const Text('The STOP Campaign Website'),
               onTap: () {
-                Navigator.of(context).pop();
+                Launcher.launchURL('https://www.thestopcampaign.org.au/');
               },
             ),
           ],

@@ -15,16 +15,16 @@ ThemeData lightTheme() {
 AppBarTheme appBarTheme() {
   return AppBarTheme(
     centerTitle: true,
-    backgroundColor: const Color.fromARGB(255, 62, 52, 52),
+    backgroundColor: LightColors.primaryColor,
     elevation: 0,
     actionsIconTheme: const IconThemeData(
-      color: Color.fromRGBO(158, 158, 158, 1),
+      color: Color.fromARGB(255, 255, 255, 255),
     ),
     titleTextStyle: TextStyle(
       fontSize: 16,
       fontFamily: GoogleFonts.poppins().fontFamily,
       fontWeight: FontWeight.w600,
-      color: const Color.fromRGBO(158, 158, 158, 1),
+      color: const Color.fromARGB(255, 255, 255, 255),
     ),
   );
 }

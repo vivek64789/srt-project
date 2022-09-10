@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:srtapp/models/personalized_contact.dart';
+import 'package:srtapp/screens/continue_to_app/about_us.dart';
+import 'package:srtapp/screens/continue_to_app/activism_and_advocacy_screen.dart';
 import 'package:srtapp/screens/continue_to_app/app_homepage.dart';
+import 'package:srtapp/screens/continue_to_app/downloadable_community_resources_screen.dart';
 import 'package:srtapp/screens/continue_to_app/immediate_response_screen.dart';
 import 'package:srtapp/screens/continue_to_app/institutional_settings_screen.dart';
 import 'package:srtapp/screens/continue_to_app/navigating_the_justice_system.dart';
 import 'package:srtapp/screens/continue_to_app/prevent_violences_screen.dart';
 import 'package:srtapp/screens/continue_to_app/quick_resources_screen.dart';
 import 'package:srtapp/screens/continue_to_app/report_incident_screen.dart';
+import 'package:srtapp/screens/continue_to_app/sharing_your_story_screen.dart';
 import 'package:srtapp/screens/continue_to_app/support_services_screen.dart';
 import 'package:srtapp/screens/homepage/homepage.dart';
 import 'package:srtapp/screens/organizations/add_organization.dart';
@@ -61,6 +65,12 @@ class MyApp extends StatelessWidget {
             const NavigatingTheJusticeSystemScreen(),
         InstitutionalSettingsScreen.routeName: (context) =>
             const InstitutionalSettingsScreen(),
+        AboutUsScreen.routeName: (context) => const AboutUsScreen(),
+        SharingYourStoryScreen.routeName: (context) =>
+            const SharingYourStoryScreen(),
+        ActivismAndAdvocacy.routeName: (context) => const ActivismAndAdvocacy(),
+        DownloadableResources.routeName: (context) =>
+            const DownloadableResources(),
       },
     );
   }
