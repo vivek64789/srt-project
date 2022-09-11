@@ -17,6 +17,7 @@ import 'package:srtapp/utils/size.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../data/contact_details.dart';
+import 'downloadable_community_resources_screen.dart';
 
 class AppHomepage extends StatelessWidget {
   static const String routeName = '/appHomepage';
@@ -175,13 +176,13 @@ class AppHomepage extends StatelessWidget {
                 Navigator.pushNamed(context, ActivismAndAdvocacy.routeName);
               },
             ),
-            // ListTile(
-            //   title: const Text('Downloadable Community Resources'),
-            //   onTap: () {
-            //     Navigator.of(context)
-            //         .pushNamed(DownloadableResources.routeName);
-            //   },
-            // ),
+            ListTile(
+              title: const Text('Downloadable Community Resources'),
+              onTap: () {
+                Navigator.of(context)
+                    .pushNamed(DownloadableResources.routeName);
+              },
+            ),
             ListTile(
               title: const Text('The Safe Response Toolkit Website'),
               onTap: () {

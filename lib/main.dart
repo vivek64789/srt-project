@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:srtapp/models/personalized_contact.dart';
 import 'package:srtapp/screens/continue_to_app/about_us.dart';
 import 'package:srtapp/screens/continue_to_app/activism_and_advocacy_screen.dart';
@@ -7,6 +8,7 @@ import 'package:srtapp/screens/continue_to_app/downloadable_community_resources_
 import 'package:srtapp/screens/continue_to_app/immediate_response_screen.dart';
 import 'package:srtapp/screens/continue_to_app/institutional_settings_screen.dart';
 import 'package:srtapp/screens/continue_to_app/navigating_the_justice_system.dart';
+import 'package:srtapp/screens/continue_to_app/pdf_viewer_page.dart';
 import 'package:srtapp/screens/continue_to_app/prevent_violences_screen.dart';
 import 'package:srtapp/screens/continue_to_app/quick_resources_screen.dart';
 import 'package:srtapp/screens/continue_to_app/report_incident_screen.dart';
@@ -30,6 +32,15 @@ void main() async {
   Hive.registerAdapter(PersonalizedContactAdapter());
   await Hive.openBox<Organization>('organizations');
   await Hive.openBox<PersonalizedContact>('personalized_contacts');
+
+  // Plugin must be initialized before using
+  await FlutterDownloader.initialize(
+      debug:
+          true, // optional: set to false to disable printing logs to console (default: true)
+      ignoreSsl:
+          true // option: set to false to disable working with http links (default: false)
+      );
+
   runApp(const MyApp());
 }
 
@@ -71,6 +82,7 @@ class MyApp extends StatelessWidget {
         ActivismAndAdvocacy.routeName: (context) => const ActivismAndAdvocacy(),
         DownloadableResources.routeName: (context) =>
             const DownloadableResources(),
+        PdfViewerScreen.routeName: (context) => const PdfViewerScreen(),
       },
     );
   }
