@@ -234,7 +234,7 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
     if (loaded) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('Downloadable Resources'),
+          title: Text(label),
           actions: [
             IconButton(
               onPressed: () async {
