@@ -276,14 +276,14 @@ class AppHomepage extends StatelessWidget {
                               },
                             ),
                             AppHomepageItem(
-                              name: 'Immediate Aftermath',
+                              name: 'Immediate Aftermath and Medical Options',
                               onTap: () {
                                 Navigator.of(context)
                                     .pushNamed(QuickResourcesScreen.routeName);
                               },
                             ),
                             AppHomepageItem(
-                              name: 'Police and Investigations',
+                              name: 'Police and Investigation',
                               onTap: () {
                                 Navigator.of(context).pushNamed(
                                     PreventViolencesScreen.routeName);

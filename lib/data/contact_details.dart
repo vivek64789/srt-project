@@ -6,17 +6,17 @@ List<Map<String, dynamic>> contactDetails = [
   },
   {
     "label": "Police Assistance",
-    "value": "100",
+    "value": "131444",
     "onClick": "call",
   },
   {
     "label": "1800 Respect",
-    "value": "100",
+    "value": "1800737732",
     "onClick": "call",
   },
   {
     "label": "Lifeline",
-    "value": "100",
+    "value": "131114",
     "onClick": "call",
   },
   // {
