@@ -234,7 +234,7 @@ class AppHomepage extends StatelessWidget {
               Container(
                   margin: const EdgeInsets.symmetric(
                       horizontal: Constants.boxMargin),
-                  height: size(context).height * 0.55,
+                  height: size(context).height * 0.58,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.background,
                     boxShadow: [
@@ -276,6 +276,7 @@ class AppHomepage extends StatelessWidget {
                               },
                             ),
                             AppHomepageItem(
+                              height: MediaQuery.of(context).size.height * 0.06,
                               name: 'Immediate Aftermath and Medical Options',
                               onTap: () {
                                 Navigator.of(context)
@@ -326,10 +327,12 @@ class AppHomepageItem extends StatelessWidget {
     Key? key,
     required this.name,
     required this.onTap,
+    this.height,
   }) : super(key: key);
 
   final String name;
   Function onTap;
+  double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -338,7 +341,7 @@ class AppHomepageItem extends StatelessWidget {
       child: GestureDetector(
         onTap: () => onTap(),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.05,
+          height: height ?? MediaQuery.of(context).size.height * 0.05,
           width: MediaQuery.of(context).size.width * 0.6,
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(10),
