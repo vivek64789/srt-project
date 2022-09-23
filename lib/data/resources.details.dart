@@ -41,4 +41,47 @@ List<Map<String, dynamic>> resourcesDetails = [
     "imageUrl":
         "https://static.wixstatic.com/media/39c35e_3cbc27cbd59840d78e928b99b851fd8d~mv2.png/v1/fill/w_844,h_1194,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/8.png",
   },
+  {
+    "url":
+        "https://www.saferesponsetoolkit.com.au/_files/ugd/39c35e_38ebfaa8595c45339a0942b39c27881e.pdf",
+    "label": "Responding to disclosure of Sexual Violence",
+    "imageUrl":
+        "https://static.wixstatic.com/media/39c35e_2bcd0b660010485aa603191b02690f2f~mv2.png/v1/fill/w_844,h_1194,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/9.png",
+  },
+  {
+    "url":
+        "https://www.saferesponsetoolkit.com.au/_files/ugd/39c35e_52374498042a4ceab966f9e2391e41c0.pdf",
+    "label": "Supporting and Checking in",
+    "imageUrl":
+        "https://static.wixstatic.com/media/39c35e_bc092168ff5a40e092e97b325ac04295~mv2.png/v1/fill/w_844,h_1194,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/10.png",
+  },
+  {
+    "url":
+        "https://www.saferesponsetoolkit.com.au/_files/ugd/39c35e_530cda739b234159b029196cde47a6dd.pdf",
+    "label":
+        "A person with a history of trauma, such as sexual violence, may be distressed or re-traumatised by touch, certain words, images or scents",
+    "imageUrl":
+        "https://static.wixstatic.com/media/39c35e_302910a3927644f9b9e6231e1389e146~mv2.png/v1/fill/w_844,h_1194,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/11.png",
+  },
+  {
+    "url":
+        "https://www.saferesponsetoolkit.com.au/_files/ugd/39c35e_9e2cda27f6e94d0dabb3bf2d87980039.pdf",
+    "label": "Various Trauma & Burnout",
+    "imageUrl":
+        "https://static.wixstatic.com/media/39c35e_bb265584c3a34929901a16e79e107304~mv2.png/v1/fill/w_844,h_1194,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/12.png",
+  },
+  {
+    "url":
+        "https://www.saferesponsetoolkit.com.au/_files/ugd/39c35e_0818b81731964da2ba6cb258ac30ef25.pdf",
+    "label": "Language when speaking about sexual violence",
+    "imageUrl":
+        "https://static.wixstatic.com/media/39c35e_05416c756d634ab3a0338582b48c8735~mv2.png/v1/fill/w_844,h_1194,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/13.png",
+  },
+  {
+    "url":
+        "https://www.saferesponsetoolkit.com.au/_files/ugd/39c35e_01db1642befe4a4a8c688421a733e5de.pdf",
+    "label": "Family Violence",
+    "imageUrl":
+        "https://static.wixstatic.com/media/39c35e_1d74c308c7b94410aac56def4da09111~mv2.png/v1/fill/w_844,h_1194,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/14.png",
+  },
 ];

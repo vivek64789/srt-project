@@ -262,7 +262,7 @@ class AppHomepage extends StatelessWidget {
                               },
                             ),
                             AppHomepageItem(
-                              name: 'Act Support Services',
+                              name: 'ACT Support Services',
                               onTap: () {
                                 Navigator.of(context)
                                     .pushNamed(ReportIncidentScreen.routeName);
